@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .converter-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .converter-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        input[type="number"], select {
+            padding: 10px;
+            width: 150px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .theme-toggle {
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode input[type="button"] {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        .dark-mode input[type="button"]:hover {
+            background-color: #333;
+        }
+        .dark-mode .converter-container {
+            background: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Unidades</h1>
+    <p>Cansado de perder tempo procurando tabelas de conversão? No Conversor de Unidades, você converte unidades de forma rápida e fácil!  Comprimento, massa, tempo, temperatura... Tudo em um só lugar.  Simplifique seus estudos e resolva seus problemas com a ajuda do nosso conversor online!</p>
+
+    <!-- Conversão de Comprimento -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Comprimento</h2>
+            <input type="number" id="valorComprimento" placeholder="Valor" step="any">
+            <select id="unidadeOrigem" class="converter-select">
+                <option value="m">Metros</option>
+                <option value="km">Quilômetros</option>
+                <option value="cm">Centímetros</option>
+                <option value="mm">Milímetros</option>
+                <option value="ft">Pés</option>
+                <option value="in">Polegadas</option>
+            </select>
+            para
+            <select id="unidadeDestino" class="converter-select">
+                <option value="m">Metros</option>
+                <option value="km">Quilômetros</option>
+                <option value="cm">Centímetros</option>
+                <option value="mm">Milímetros</option>
+                <option value="ft">Pés</option>
+                <option value="in">Polegadas</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterUnidade()">
+            <div class="result" id="resultadoComprimento"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Massa -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Massa</h2>
+            <input type="number" id="gramas" placeholder="Gramas" step="any">
+            <input type="button" value="Converter para Kg" onclick="converter('gramas', 0.001, 'kg', 'resultadoGramas')">
+            <div class="result" id="resultadoGramas"></div>
+            <input type="number" id="quilogramas" placeholder="Quilogramas" step="any">
+            <input type="button" value="Converter para Gramas" onclick="converter('quilogramas', 1000, 'g', 'resultadoQuilogramas')">
+            <div class="result" id="resultadoQuilogramas"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Tempo -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Tempo</h2>
+            <input type="number" id="segundos" placeholder="Segundos" step="any">
+            <input type="button" value="Converter para Minutos" onclick="converter('segundos', 1/60, 'min', 'resultadoSegundos')">
+            <div class="result" id="resultadoSegundos"></div>
+            <input type="number" id="minutos" placeholder="Minutos" step="any">
+            <input type="button" value="Converter para Segundos" onclick="converter('minutos', 60, 's', 'resultadoMinutos')">
+            <div class="result" id="resultadoMinutos"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Velocidade -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Velocidade</h2>
+            <input type="number" id="kmh" placeholder="Km/h" step="any">
+            <input type="button" value="Converter para m/s" onclick="converter('kmh', 1/3.6, 'm/s', 'resultadoKmh')">
+            <div class="result" id="resultadoKmh"></div>
+            <input type="number" id="ms" placeholder="m/s" step="any">
+            <input type="button" value="Converter para Km/h" onclick="converter('ms', 3.6, 'km/h', 'resultadoMs')">
+            <div class="result" id="resultadoMs"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Volume -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Volume</h2>
+            <input type="number" id="litros" placeholder="Litros" step="any">
+            <input type="button" value="Converter para mL" onclick="converter('litros', 1000, 'mL', 'resultadoLitros')">
+            <div class="result" id="resultadoLitros"></div>
+            <input type="number" id="mililitros" placeholder="Mililitros" step="any">
+            <input type="button" value="Converter para Litros" onclick="converter('mililitros', 0.001, 'L', 'resultadoMililitros')">
+            <div class="result" id="resultadoMililitros"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Temperatura -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Temperatura</h2>
+            <input type="number" id="celsius" placeholder="Celsius" step="any">
+            <input type="button" value="Converter para Fahrenheit" onclick="converterTemperatura('C', 'F', 'celsius', 'resultadoTemperatura')">
+            <div class="result" id="resultadoTemperatura"></div>
+            <input type="number" id="fahrenheit" placeholder="Fahrenheit" step="any">
+            <input type="button" value="Converter para Celsius" onclick="converterTemperatura('F', 'C', 'fahrenheit', 'resultadoTemperatura')">
+            <div class="result" id="resultadoTemperatura"></div>
+        </div>
+    </div>
+
+    <!-- Conversão de Energia -->
+    <div class="converter-container">
+        <div class="converter">
+            <h2 class="converter-title">Conversão de Energia</h2>
+            <input type="number" id="joules" placeholder="Joules" step="any">
+            <input type="button" value="Converter para Calorias" onclick="converter('joules', 0.239006, 'cal', 'resultadoJoules')">
+            <div class="result" id="resultadoJoules"></div>
+            <input type="number" id="calorias" placeholder="Calorias" step="any">
+            <input type="button" value="Converter para Joules" onclick="converter('calorias', 4.184, 'J', 'resultadoCalorias')">
+            <div class="result" id="resultadoCalorias"></div>
+        </div>
+    </div>
+
+    <!-- Histórico de Conversões -->
+    <div class="converter-container">
+        <h2 class="converter-title">Histórico de Conversões</h2>
+        <ul id="historicoConversoes"></ul>
+    </div>
+
+    <!-- Toggle Dark Mode -->
+    <div class="theme-toggle" onclick="toggleTheme()">Modo Escuro</div>
+
+    <script>
+        function converterUnidade() {
+            const valor = parseFloat(document.getElementById('valorComprimento').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigem').value;
+            const unidadeDestino = document.getElementById('unidadeDestino').value;
+            let resultado;
+            const unidadeConversion = {
+                "m": { "km": 0.001, "cm": 100, "mm": 1000, "ft": 3.28084, "in": 39.3701 },
+                "km": { "m": 1000, "cm": 100000, "mm": 1000000, "ft": 3280.84, "in": 39370.1 },
+                "cm": { "m": 0.01, "km": 0.00001, "mm": 10, "ft": 0.0328084, "in": 0.393701 },
+                "mm": { "m": 0.001, "km": 0.000001, "cm": 0.1, "ft": 0.00328084, "in": 0.0393701 },
+                "ft": { "m": 0.3048, "km": 0.0003048, "cm": 30.48, "mm": 304.8, "in": 12 },
+                "in": { "m": 0.0254, "km": 0.0000254, "cm": 2.54, "mm": 25.4, "ft": 0.0833333 }
+            };
+            if (unidadeConversion[unidadeOrigem] && unidadeConversion[unidadeOrigem][unidadeDestino]) {
+                resultado = valor * unidadeConversion[unidadeOrigem][unidadeDestino];
+            } else {
+                resultado = "Unidade de conversão não suportada";
+            }
+            document.getElementById('resultadoComprimento').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converter(entradaId, fatorConversao, unidadeDestino, resultadoId) {
+            const valor = parseFloat(document.getElementById(entradaId).value);
+            if (isNaN(valor)) {
+                document.getElementById(resultadoId).innerText = "Por favor, insira um valor válido.";
+                return;
+            }
+            const resultado = valor * fatorConversao;
+            document.getElementById(resultadoId).innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, entradaId, unidadeDestino, resultado);
+        }
+
+        function converterTemperatura(origem, destino, entradaId, resultadoId) {
+            const valor = parseFloat(document.getElementById(entradaId).value);
+            if (isNaN(valor)) {
+                document.getElementById(resultadoId).innerText = "Por favor, insira um valor válido.";
+                return;
+            }
+            let resultado;
+            if (origem === 'C' && destino === 'F') {
+                resultado = (valor * 9/5) + 32;
+            } else if (origem === 'F' && destino === 'C') {
+                resultado = (valor - 32) * 5/9;
+            }
+            document.getElementById(resultadoId).innerText = `Resultado: ${resultado.toFixed(2)} °${destino}`;
+            adicionarHistorico(valor, `${origem}°`, `${destino}°`, resultado.toFixed(2));
+        }
+
+        function adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado) {
+            const itemHistorico = document.createElement('li');
+            itemHistorico.innerText = `${valor} ${unidadeOrigem} = ${resultado} ${unidadeDestino}`;
+            document.getElementById('historicoConversoes').appendChild(itemHistorico);
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const themeText = document.querySelector('.theme-toggle').innerText;
+            document.querySelector('.theme-toggle').innerText = themeText === 'Modo Escuro' ? 'Modo Claro' : 'Modo Escuro';
+        }
+    </script>
+</body>
+</html>
