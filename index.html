@@ -95,6 +95,8 @@
                 <option value="mm">Milímetros</option>
                 <option value="ft">Pés</option>
                 <option value="in">Polegadas</option>
+                <option value="yd">Jardas</option>
+                <option value="mi">Milhas</option>
             </select>
             para
             <select id="unidadeDestino" class="converter-select">
@@ -104,6 +106,8 @@
                 <option value="mm">Milímetros</option>
                 <option value="ft">Pés</option>
                 <option value="in">Polegadas</option>
+                <option value="yd">Jardas</option>
+                <option value="mi">Milhas</option>
             </select>
             <input type="button" value="Converter" onclick="converterUnidade()">
             <div class="result" id="resultadoComprimento"></div>
@@ -115,11 +119,21 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Massa</h2>
             <input type="number" id="gramas" placeholder="Gramas" step="any">
-            <input type="button" value="Converter para Kg" onclick="converter('gramas', 0.001, 'kg', 'resultadoGramas')">
-            <div class="result" id="resultadoGramas"></div>
-            <input type="number" id="quilogramas" placeholder="Quilogramas" step="any">
-            <input type="button" value="Converter para Gramas" onclick="converter('quilogramas', 1000, 'g', 'resultadoQuilogramas')">
-            <div class="result" id="resultadoQuilogramas"></div>
+            <select id="unidadeOrigemMassa" class="converter-select">
+                <option value="g">Gramas</option>
+                <option value="kg">Quilogramas</option>
+                <option value="lb">Libras</option>
+                <option value="oz">Onças</option>
+            </select>
+            para
+            <select id="unidadeDestinoMassa" class="converter-select">
+                <option value="g">Gramas</option>
+                <option value="kg">Quilogramas</option>
+                <option value="lb">Libras</option>
+                <option value="oz">Onças</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterMassa()">
+            <div class="result" id="resultadoMassa"></div>
         </div>
     </div>
 
@@ -128,11 +142,23 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Tempo</h2>
             <input type="number" id="segundos" placeholder="Segundos" step="any">
-            <input type="button" value="Converter para Minutos" onclick="converter('segundos', 1/60, 'min', 'resultadoSegundos')">
-            <div class="result" id="resultadoSegundos"></div>
-            <input type="number" id="minutos" placeholder="Minutos" step="any">
-            <input type="button" value="Converter para Segundos" onclick="converter('minutos', 60, 's', 'resultadoMinutos')">
-            <div class="result" id="resultadoMinutos"></div>
+            <select id="unidadeOrigemTempo" class="converter-select">
+                <option value="s">Segundos</option>
+                <option value="min">Minutos</option>
+                <option value="h">Horas</option>
+                <option value="d">Dias</option>
+                <option value="y">Anos</option>
+            </select>
+            para
+            <select id="unidadeDestinoTempo" class="converter-select">
+                <option value="s">Segundos</option>
+                <option value="min">Minutos</option>
+                <option value="h">Horas</option>
+                <option value="d">Dias</option>
+                <option value="y">Anos</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterTempo()">
+            <div class="result" id="resultadoTempo"></div>
         </div>
     </div>
 
@@ -141,11 +167,19 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Velocidade</h2>
             <input type="number" id="kmh" placeholder="Km/h" step="any">
-            <input type="button" value="Converter para m/s" onclick="converter('kmh', 1/3.6, 'm/s', 'resultadoKmh')">
-            <div class="result" id="resultadoKmh"></div>
-            <input type="number" id="ms" placeholder="m/s" step="any">
-            <input type="button" value="Converter para Km/h" onclick="converter('ms', 3.6, 'km/h', 'resultadoMs')">
-            <div class="result" id="resultadoMs"></div>
+            <select id="unidadeOrigemVelocidade" class="converter-select">
+                <option value="km/h">Km/h</option>
+                <option value="m/s">m/s</option>
+                <option value="kt">Nós</option>
+            </select>
+            para
+            <select id="unidadeDestinoVelocidade" class="converter-select">
+                <option value="km/h">Km/h</option>
+                <option value="m/s">m/s</option>
+                <option value="kt">Nós</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterVelocidade()">
+            <div class="result" id="resultadoVelocidade"></div>
         </div>
     </div>
 
@@ -154,11 +188,21 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Volume</h2>
             <input type="number" id="litros" placeholder="Litros" step="any">
-            <input type="button" value="Converter para mL" onclick="converter('litros', 1000, 'mL', 'resultadoLitros')">
-            <div class="result" id="resultadoLitros"></div>
-            <input type="number" id="mililitros" placeholder="Mililitros" step="any">
-            <input type="button" value="Converter para Litros" onclick="converter('mililitros', 0.001, 'L', 'resultadoMililitros')">
-            <div class="result" id="resultadoMililitros"></div>
+            <select id="unidadeOrigemVolume" class="converter-select">
+                <option value="L">Litros</option>
+                <option value="mL">Mililitros</option>
+                <option value="gal">Galões</option>
+                <option value="pt">Pintas</option>
+            </select>
+            para
+            <select id="unidadeDestinoVolume" class="converter-select">
+                <option value="L">Litros</option>
+                <option value="mL">Mililitros</option>
+                <option value="gal">Galões</option>
+                <option value="pt">Pintas</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterVolume()">
+            <div class="result" id="resultadoVolume"></div>
         </div>
     </div>
 
@@ -167,10 +211,18 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Temperatura</h2>
             <input type="number" id="celsius" placeholder="Celsius" step="any">
-            <input type="button" value="Converter para Fahrenheit" onclick="converterTemperatura('C', 'F', 'celsius', 'resultadoTemperatura')">
-            <div class="result" id="resultadoTemperatura"></div>
-            <input type="number" id="fahrenheit" placeholder="Fahrenheit" step="any">
-            <input type="button" value="Converter para Celsius" onclick="converterTemperatura('F', 'C', 'fahrenheit', 'resultadoTemperatura')">
+            <select id="unidadeOrigemTemperatura" class="converter-select">
+                <option value="C">Celsius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+            para
+            <select id="unidadeDestinoTemperatura" class="converter-select">
+                <option value="C">Celsius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterTemperatura()">
             <div class="result" id="resultadoTemperatura"></div>
         </div>
     </div>
@@ -180,11 +232,17 @@
         <div class="converter">
             <h2 class="converter-title">Conversão de Energia</h2>
             <input type="number" id="joules" placeholder="Joules" step="any">
-            <input type="button" value="Converter para Calorias" onclick="converter('joules', 0.239006, 'cal', 'resultadoJoules')">
-            <div class="result" id="resultadoJoules"></div>
-            <input type="number" id="calorias" placeholder="Calorias" step="any">
-            <input type="button" value="Converter para Joules" onclick="converter('calorias', 4.184, 'J', 'resultadoCalorias')">
-            <div class="result" id="resultadoCalorias"></div>
+            <select id="unidadeOrigemEnergia" class="converter-select">
+                <option value="J">Joules</option>
+                <option value="cal">Calorias</option>
+            </select>
+            para
+            <select id="unidadeDestinoEnergia" class="converter-select">
+                <option value="J">Joules</option>
+                <option value="cal">Calorias</option>
+            </select>
+            <input type="button" value="Converter" onclick="converterEnergia()">
+            <div class="result" id="resultadoEnergia"></div>
         </div>
     </div>
 
@@ -197,54 +255,510 @@
     <!-- Toggle Dark Mode -->
     <div class="theme-toggle" onclick="toggleTheme()">Modo Escuro</div>
 
+
     <script>
         function converterUnidade() {
             const valor = parseFloat(document.getElementById('valorComprimento').value);
             const unidadeOrigem = document.getElementById('unidadeOrigem').value;
             const unidadeDestino = document.getElementById('unidadeDestino').value;
+
             let resultado;
-            const unidadeConversion = {
-                "m": { "km": 0.001, "cm": 100, "mm": 1000, "ft": 3.28084, "in": 39.3701 },
-                "km": { "m": 1000, "cm": 100000, "mm": 1000000, "ft": 3280.84, "in": 39370.1 },
-                "cm": { "m": 0.01, "km": 0.00001, "mm": 10, "ft": 0.0328084, "in": 0.393701 },
-                "mm": { "m": 0.001, "km": 0.000001, "cm": 0.1, "ft": 0.00328084, "in": 0.0393701 },
-                "ft": { "m": 0.3048, "km": 0.0003048, "cm": 30.48, "mm": 304.8, "in": 12 },
-                "in": { "m": 0.0254, "km": 0.0000254, "cm": 2.54, "mm": 25.4, "ft": 0.0833333 }
-            };
-            if (unidadeConversion[unidadeOrigem] && unidadeConversion[unidadeOrigem][unidadeDestino]) {
-                resultado = valor * unidadeConversion[unidadeOrigem][unidadeDestino];
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
             } else {
-                resultado = "Unidade de conversão não suportada";
+                resultado = converterValorComprimento(valor, unidadeOrigem, unidadeDestino);
             }
+
             document.getElementById('resultadoComprimento').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
             adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
         }
 
-        function converter(entradaId, fatorConversao, unidadeDestino, resultadoId) {
-            const valor = parseFloat(document.getElementById(entradaId).value);
-            if (isNaN(valor)) {
-                document.getElementById(resultadoId).innerText = "Por favor, insira um valor válido.";
-                return;
+        function converterValorComprimento(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'm':
+                    switch (unidadeDestino) {
+                        case 'km':
+                            return valor * 0.001;
+                        case 'cm':
+                            return valor * 100;
+                        case 'mm':
+                            return valor * 1000;
+                        case 'ft':
+                            return valor * 3.28084;
+                        case 'in':
+                            return valor * 39.3701;
+                        case 'yd':
+                            return valor * 1.09361;
+                        case 'mi':
+                            return valor * 0.000621371;
+                    }
+                    break;
+                case 'km':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 1000;
+                        case 'cm':
+                            return valor * 100000;
+                        case 'mm':
+                            return valor * 1000000;
+                        case 'ft':
+                            return valor * 3280.84;
+                        case 'in':
+                            return valor * 39370.1;
+                        case 'yd':
+                            return valor * 1093.61;
+                        case 'mi':
+                            return valor * 0.621371;
+                    }
+                    break;
+                case 'cm':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 0.01;
+                        case 'km':
+                            return valor * 0.00001;
+                        case 'mm':
+                            return valor * 10;
+                        case 'ft':
+                            return valor * 0.0328084;
+                        case 'in':
+                            return valor * 0.393701;
+                        case 'yd':
+                            return valor * 0.0109361;
+                        case 'mi':
+                            return valor * 0.00000621371;
+                    }
+                    break;
+                case 'mm':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 0.001;
+                        case 'km':
+                            return valor * 0.000001;
+                        case 'cm':
+                            return valor * 0.1;
+                        case 'ft':
+                            return valor * 0.00328084;
+                        case 'in':
+                            return valor * 0.0393701;
+                        case 'yd':
+                            return valor * 0.00109361;
+                        case 'mi':
+                            return valor * 0.000000621371;
+                    }
+                    break;
+                case 'ft':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 0.3048;
+                        case 'km':
+                            return valor * 0.0003048;
+                        case 'cm':
+                            return valor * 30.48;
+                        case 'mm':
+                            return valor * 304.8;
+                        case 'in':
+                            return valor * 12;
+                        case 'yd':
+                            return valor * 0.333333;
+                        case 'mi':
+                            return valor * 0.000189394;
+                    }
+                    break;
+                case 'in':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 0.0254;
+                        case 'km':
+                            return valor * 0.0000254;
+                        case 'cm':
+                            return valor * 2.54;
+                        case 'mm':
+                            return valor * 25.4;
+                        case 'ft':
+                            return valor * 0.0833333;
+                        case 'yd':
+                            return valor * 0.0277778;
+                        case 'mi':
+                            return valor * 0.0000157828;
+                    }
+                    break;
+                case 'yd':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 0.9144;
+                        case 'km':
+                            return valor * 0.0009144;
+                        case 'cm':
+                            return valor * 91.44;
+                        case 'mm':
+                            return valor * 914.4;
+                        case 'ft':
+                            return valor * 3;
+                        case 'in':
+                            return valor * 36;
+                        case 'mi':
+                            return valor * 0.000568182;
+                    }
+                    break;
+                case 'mi':
+                    switch (unidadeDestino) {
+                        case 'm':
+                            return valor * 1609.34;
+                        case 'km':
+                            return valor * 1.60934;
+                        case 'cm':
+                            return valor * 160934;
+                        case 'mm':
+                            return valor * 1609340;
+                        case 'ft':
+                            return valor * 5280;
+                        case 'in':
+                            return valor * 63360;
+                        case 'yd':
+                            return valor * 1760;
+                    }
+                    break;
             }
-            const resultado = valor * fatorConversao;
-            document.getElementById(resultadoId).innerText = `Resultado: ${resultado} ${unidadeDestino}`;
-            adicionarHistorico(valor, entradaId, unidadeDestino, resultado);
+
+            return "Unidade de conversão não suportada";
         }
 
-        function converterTemperatura(origem, destino, entradaId, resultadoId) {
-            const valor = parseFloat(document.getElementById(entradaId).value);
-            if (isNaN(valor)) {
-                document.getElementById(resultadoId).innerText = "Por favor, insira um valor válido.";
-                return;
-            }
+        function converterMassa() {
+            const valor = parseFloat(document.getElementById('gramas').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemMassa').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoMassa').value;
+
             let resultado;
-            if (origem === 'C' && destino === 'F') {
-                resultado = (valor * 9/5) + 32;
-            } else if (origem === 'F' && destino === 'C') {
-                resultado = (valor - 32) * 5/9;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorMassa(valor, unidadeOrigem, unidadeDestino);
             }
-            document.getElementById(resultadoId).innerText = `Resultado: ${resultado.toFixed(2)} °${destino}`;
-            adicionarHistorico(valor, `${origem}°`, `${destino}°`, resultado.toFixed(2));
+
+            document.getElementById('resultadoMassa').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converterValorMassa(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'g':
+                    switch (unidadeDestino) {
+                        case 'kg':
+                            return valor * 0.001;
+                        case 'lb':
+                            return valor * 0.00220462;
+                        case 'oz':
+                            return valor * 0.035274;
+                    }
+                    break;
+                case 'kg':
+                    switch (unidadeDestino) {
+                        case 'g':
+                            return valor * 1000;
+                        case 'lb':
+                            return valor * 2.20462;
+                        case 'oz':
+                            return valor * 35.274;
+                    }
+                    break;
+                case 'lb':
+                    switch (unidadeDestino) {
+                        case 'g':
+                            return valor * 453.592;
+                        case 'kg':
+                            return valor * 0.453592;
+                        case 'oz':
+                            return valor * 16;
+                    }
+                    break;
+                case 'oz':
+                    switch (unidadeDestino) {
+                        case 'g':
+                            return valor * 28.3495;
+                        case 'kg':
+                            return valor * 0.0283495;
+                        case 'lb':
+                            return valor * 0.0625;
+                    }
+                    break;
+            }
+
+            return "Unidade de conversão não suportada";
+        }
+
+        function converterTempo() {
+            const valor = parseFloat(document.getElementById('segundos').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemTempo').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoTempo').value;
+
+            let resultado;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorTempo(valor, unidadeOrigem, unidadeDestino);
+            }
+
+            document.getElementById('resultadoTempo').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converterValorTempo(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 's':
+                    switch (unidadeDestino) {
+                        case 'min':
+                            return valor * (1/60);
+                        case 'h':
+                            return valor * (1/3600);
+                        case 'd':
+                            return valor * (1/86400);
+                        case 'y':
+                            return valor * (1/31536000);
+                    }
+                    break;
+                case 'min':
+                    switch (unidadeDestino) {
+                        case 's':
+                            return valor * 60;
+                        case 'h':
+                            return valor * (1/60);
+                        case 'd':
+                            return valor * (1/1440);
+                        case 'y':
+                            return valor * (1/525600);
+                    }
+                    break;
+                case 'h':
+                    switch (unidadeDestino) {
+                        case 's':
+                            return valor * 3600;
+                        case 'min':
+                            return valor * 60;
+                        case 'd':
+                            return valor * (1/24);
+                        case 'y':
+                            return valor * (1/8760);
+                    }
+                    break;
+                case 'd':
+                    switch (unidadeDestino) {
+                        case 's':
+                            return valor * 86400;
+                        case 'min':
+                            return valor * 1440;
+                        case 'h':
+                            return valor * 24;
+                        case 'y':
+                            return valor * (1/365);
+                    }
+                    break;
+                case 'y':
+                    switch (unidadeDestino) {
+                        case 's':
+                            return valor * 31536000;
+                        case 'min':
+                            return valor * 525600;
+                        case 'h':
+                            return valor * 8760;
+                        case 'd':
+                            return valor * 365;
+                    }
+                    break;
+            }
+
+            return "Unidade de conversão não suportada";
+        }
+
+        function converterVelocidade() {
+            const valor = parseFloat(document.getElementById('kmh').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemVelocidade').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoVelocidade').value;
+
+            let resultado;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorVelocidade(valor, unidadeOrigem, unidadeDestino);
+            }
+
+            document.getElementById('resultadoVelocidade').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converterValorVelocidade(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'km/h':
+                    switch (unidadeDestino) {
+                        case 'm/s':
+                            return valor / 3.6;
+                        case 'kt':
+                            return valor / 1.852;
+                    }
+                    break;
+                case 'm/s':
+                    switch (unidadeDestino) {
+                        case 'km/h':
+                            return valor * 3.6;
+                        case 'kt':
+                            return valor / 0.514444;
+                    }
+                    break;
+                case 'kt':
+                    switch (unidadeDestino) {
+                        case 'km/h':
+                            return valor * 1.852;
+                        case 'm/s':
+                            return valor * 0.514444;
+                    }
+                    break;
+            }
+
+            return "Unidade de conversão não suportada";
+        }
+
+        function converterVolume() {
+            const valor = parseFloat(document.getElementById('litros').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemVolume').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoVolume').value;
+
+            let resultado;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorVolume(valor, unidadeOrigem, unidadeDestino);
+            }
+
+            document.getElementById('resultadoVolume').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converterValorVolume(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'L':
+                    switch (unidadeDestino) {
+                        case 'mL':
+                            return valor * 1000;
+                        case 'gal':
+                            return valor / 3.78541;
+                        case 'pt':
+                            return valor / 0.473176;
+                    }
+                    break;
+                case 'mL':
+                    switch (unidadeDestino) {
+                        case 'L':
+                            return valor / 1000;
+                        case 'gal':
+                            return valor / 3785.41;
+                        case 'pt':
+                            return valor / 473.176;
+                    }
+                    break;
+                case 'gal':
+                    switch (unidadeDestino) {
+                        case 'L':
+                            return valor * 3.78541;
+                        case 'mL':
+                            return valor * 3785.41;
+                        case 'pt':
+                            return valor * 128;
+                    }
+                    break;
+                case 'pt':
+                    switch (unidadeDestino) {
+                        case 'L':
+                            return valor * 0.473176;
+                        case 'mL':
+                            return valor * 473.176;
+                        case 'gal':
+                            return valor / 128;
+                    }
+                    break;
+            }
+
+            return "Unidade de conversão não suportada";
+        }
+
+        function converterTemperatura() {
+            const valor = parseFloat(document.getElementById('celsius').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemTemperatura').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoTemperatura').value;
+
+            let resultado;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorTemperatura(valor, unidadeOrigem, unidadeDestino);
+            }
+
+            document.getElementById('resultadoTemperatura').innerText = `Resultado: ${resultado.toFixed(2)} °${unidadeDestino}`;
+            adicionarHistorico(valor, `${unidadeOrigem}°`, `${unidadeDestino}°`, resultado.toFixed(2));
+        }
+
+        function converterValorTemperatura(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'C':
+                    switch (unidadeDestino) {
+                        case 'F':
+                            return (valor * 9/5) + 32;
+                        case 'K':
+                            return valor + 273.15;
+                    }
+                    break;
+                case 'F':
+                    switch (unidadeDestino) {
+                        case 'C':
+                            return (valor - 32) * 5/9;
+                        case 'K':
+                            return (valor - 32) * 5/9 + 273.15;
+                    }
+                    break;
+                case 'K':
+                    switch (unidadeDestino) {
+                        case 'C':
+                            return valor - 273.15;
+                        case 'F':
+                            return (valor - 273.15) * 9/5 + 32;
+                    }
+                    break;
+            }
+
+            return "Unidade de conversão não suportada";
+        }
+
+        function converterEnergia() {
+            const valor = parseFloat(document.getElementById('joules').value);
+            const unidadeOrigem = document.getElementById('unidadeOrigemEnergia').value;
+            const unidadeDestino = document.getElementById('unidadeDestinoEnergia').value;
+
+            let resultado;
+            if (unidadeOrigem === unidadeDestino) {
+                resultado = valor;
+            } else {
+                resultado = converterValorEnergia(valor, unidadeOrigem, unidadeDestino);
+            }
+
+            document.getElementById('resultadoEnergia').innerText = `Resultado: ${resultado} ${unidadeDestino}`;
+            adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado);
+        }
+
+        function converterValorEnergia(valor, unidadeOrigem, unidadeDestino) {
+            switch (unidadeOrigem) {
+                case 'J':
+                    switch (unidadeDestino) {
+                        case 'cal':
+                            return valor * 0.239006;
+                    }
+                    break;
+                case 'cal':
+                    switch (unidadeDestino) {
+                        case 'J':
+                            return valor * 4.184;
+                    }
+                    break;
+            }
+            return "Unidade de conversão não suportada";
         }
 
         function adicionarHistorico(valor, unidadeOrigem, unidadeDestino, resultado) {
